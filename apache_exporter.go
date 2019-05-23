@@ -173,7 +173,7 @@ func (e *Exporter) collect(ch chan<- prometheus.Metric) error {
 		req.Host = *hostOverride
 	}
     if *username != "" && *password != "" {
-        req.SetBasicAuth(username, password)
+        req.SetBasicAuth(*username, *password)
     }
 	if err != nil {
 		return fmt.Errorf("Error building scraping request: %v", err)
