@@ -1,6 +1,11 @@
-FROM quay.io/prometheus/busybox:latest
+FROM golang:1.11
 
-COPY apache_exporter /bin/apache_exporter
+WORKDIR $GOPATH/src/github.com/Skeen/apache_exporter
+COPY . .
 
-ENTRYPOINT ["/bin/apache_exporter"]
-EXPOSE     9117
+RUN go get -d -v .
+RUN go install -v .
+
+EXPOSE 9117
+
+ENTRYPOINT ["apache_exporter"]
