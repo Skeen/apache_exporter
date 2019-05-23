@@ -4,7 +4,7 @@
 [![Docker Repository on Quay](https://quay.io/repository/Lusitaniae/apache-exporter/status)][quay]
 [![Docker Pulls](https://img.shields.io/docker/pulls/lusotycoon/apache-exporter.svg?maxAge=604800)][hub]
 
-Exports apache mod_status statistics via HTTP for Prometheus consumption.
+Exports apache `mod_status` statistics via HTTP for Prometheus consumption.
 
 With working golang environment it can be built with `go get`.  There is a [good article](https://machineperson.github.io/monitoring/2016/01/04/exporting-apache-metrics-to-prometheus.html) with build HOWTO and usage example.
 
@@ -19,6 +19,12 @@ Help on flags:
     	Address on which to expose metrics. (default ":9117")
   -telemetry.endpoint string
     	Path under which to expose metrics. (default "/metrics")
+  -host_override string
+        Override for HTTP Host header.
+  -username string
+        Username to use for HTTP basic auth.
+  -password string
+        Password to use for HTTP basic auth.
   -version
     	Version of the Apache exporter.
 ```
